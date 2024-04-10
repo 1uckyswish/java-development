@@ -9,5 +9,10 @@ public class HelloWorld {
         System.out.print("Whats your name ");
         String name = scanner.nextLine();
         System.out.println("Howdy " + name);
+        name();
+    }
+
+    public static void name(){
+        System.out.println("noel");
     }
 }
