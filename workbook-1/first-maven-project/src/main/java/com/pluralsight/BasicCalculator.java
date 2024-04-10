@@ -34,5 +34,6 @@ public class BasicCalculator {
             default:
                 System.out.println("Sorry Please type One of the options printed Above.");
         }
+        scan.close();
     }
 }
