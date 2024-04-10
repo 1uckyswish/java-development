@@ -39,9 +39,5 @@ public class DataTypes {
         System.out.println(wholeNumber);
         int wholeNumber2 = (int) Math.round(value);
         System.out.println(wholeNumber2);
-
-
-
-
     }
 }

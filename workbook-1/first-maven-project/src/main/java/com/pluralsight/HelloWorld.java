@@ -1,12 +1,13 @@
 package com.pluralsight;
 
+import java.util.Scanner;
+
 public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello world!");
-
-        double radius = 3 * 3 * Math.PI;
-        System.out.println(radius);
-
-        System.out.println(Math.sqrt(5.0));
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Whats your name ");
+        String name = scanner.nextLine();
+        System.out.println("Howdy " + name);
     }
 }
