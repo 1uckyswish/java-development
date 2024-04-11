@@ -19,8 +19,9 @@ public class PayrollCalculator {
             int amountOfOvertime = (int) hours - 40;
             double overtimePay = hourlyPay * 1.5;
             double overtimeEarnings = overtimePay * amountOfOvertime;
-            grossPay += overtimeEarnings;
-            System.out.printf("Great job, %s! You've earned $%.2f this week, with %d hours of overtime.\n", userName, grossPay, amountOfOvertime);
+            double grossPayBeforeOvertime = 40 * hourlyPay;
+            grossPayBeforeOvertime += overtimeEarnings;
+            System.out.printf("Great job, %s! You've earned $%.2f this week, with %d hours of overtime.\n", userName, grossPayBeforeOvertime, amountOfOvertime);
         }else{
             System.out.printf("Impressive work, %s! Your earnings for this week are $%.2f.\n", userName, grossPay);
         }
