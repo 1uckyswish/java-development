@@ -65,6 +65,17 @@ public class RentalCarCalculator {
         }
     }
 
+    public static boolean getRoadside(Scanner scanner){
+        System.out.print("Would you like to add roadside assistance for the rental for an extra $3.95 a day? (yes/no): ");
+        String answer = scanner.next();
+        if(!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no")){
+            System.out.println("Sorry please try again. Type either (yes/no)");
+            return getGPS(scanner);
+        }else{
+            return answer.equalsIgnoreCase("yes");
+        }
+    }
+
     public static int getAge(Scanner scanner){
         System.out.println("What is your current age?");
     System.out.print("If your are under the age of 25 it is a 30% surcharge fee ");
@@ -83,17 +94,19 @@ public class RentalCarCalculator {
         int numberOfDays = getNumberOfDays(scanner);
         boolean electronicTag = getTollTag(scanner);
         boolean gps = getGPS(scanner);
+        boolean roadside = getRoadside(scanner);
         int age = getAge(scanner);
-        calculateAndDisplay(pickUpDate, numberOfDays, electronicTag, gps, age);
+        calculateAndDisplay(pickUpDate, numberOfDays, electronicTag, gps, age, roadside);
 
     }
 
-    public static void calculateAndDisplay(String pickUpDate, int numberOfDays, boolean electronicTag,  boolean gps, int age ){
+    public static void calculateAndDisplay(String pickUpDate, int numberOfDays, boolean electronicTag,  boolean gps, int age, boolean roadside){
         double dailyFee = 29.99 * numberOfDays;
         double tollFee = (electronicTag ? 3.95 : 0.00) * numberOfDays;
         double gpsFee = (gps ? 2.95 : 0.00) * numberOfDays;
+        double roadsideFee = (roadside ? 3.95 : 0.00) * numberOfDays;
         double surcharge = 0.00;
-        double optionsFee = tollFee + gpsFee;
+        double optionsFee = tollFee + gpsFee + roadsideFee;
         double totalCost = dailyFee + optionsFee;
         if(age <= 25 && age > 0){
            surcharge = dailyFee * 0.30;
