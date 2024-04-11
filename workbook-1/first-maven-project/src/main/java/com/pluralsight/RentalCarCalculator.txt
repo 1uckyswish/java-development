@@ -1,1 +1,38 @@
-*** ***
+***Pseudocode RentalCarCalculator***
+
+- Greet the user warmly and introduce Java Rental Motors.
+
+- Politely inquire about the user's preferred day for picking up their rental car.
+    - Offer available dates: Monday May 15th 2024, Tuesday May 16th 2024, Friday May 18th 2024, Sunday May 20th 2024.
+    - Listen to the user's choice.
+    - If the user selects an available date:
+        - Acknowledge the selection and proceed.
+    - If the user chooses an unavailable date or provides an invalid input:
+        - Express regret politely and ask if another day would be suitable.
+        - Repeat until a mutually agreeable pick-up date is confirmed.
+
+- Engage the user in a conversation to determine the number of days they'd like to rent the car.
+    - Respectfully ask the user how many days they intend to rent the vehicle.
+    - Listen to the user's response attentively.
+    - If the user provides a valid number of days:
+        - Accept the input and continue.
+    - If the user gives an unreasonable or nonsensical number:
+        - Kindly remind them of the rental period options and ask for clarification.
+        - Repeat until a reasonable rental period is established.
+
+- Express interest in knowing the user's age to ensure the best service.
+    - Pose the question regarding the user's age in a friendly manner.
+    - Patiently await the user's response.
+    - If the user provides a valid age:
+        - Thank them and proceed with the calculation.
+    - If the user gives an unexpected or invalid response:
+        - Apologize for the inconvenience and kindly request clarification.
+        - Repeat until a valid age is provided.
+
+- Calculate the total cost of the rental with any applicable surcharges based on the user's age.
+
+- Present a summary of the rental agreement and total cost in a friendly and clear manner.
+
+- Express gratitude for choosing Java Rental Motors and wish the user a pleasant experience.
+
+- End the RentalCarCalculator process.
