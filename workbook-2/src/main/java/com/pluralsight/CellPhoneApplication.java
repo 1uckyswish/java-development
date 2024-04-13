@@ -10,8 +10,10 @@ public class CellPhoneApplication {
         CellPhone phone2 = createCellPhone(scanner);
         display(phone2);
 
-        phone1.dial(phone2.getPhoneNumber());
-        phone2.dial(phone1.getPhoneNumber());
+//        phone1.dial(phone2.getPhoneNumber());
+//        phone2.dial(phone1.getPhoneNumber());
+        dialNewPhone(phone1, phone2);
+        dialNewPhone(phone2, phone1);
     }
 
     public static CellPhone createCellPhone(Scanner scanner) {
@@ -38,6 +40,11 @@ public class CellPhoneApplication {
         System.out.println("Phone Number: " + phone.getPhoneNumber());
         System.out.println("Owner: " + phone.getOwner()+ "\n");
     }
+
+    // overloaded dial method.
+    public static void dialNewPhone(CellPhone newPhone, CellPhone callingPhone) {
+        callingPhone.dial(newPhone);
+    }
 }
 
 class CellPhone{
@@ -53,6 +60,14 @@ class CellPhone{
         this.carrier = "";
         this.phoneNumber = "";
         this.owner = "";
+    }
+    // create constrcutor.
+    public CellPhone(int serialNumber, String model, String carrier, String phoneNumber, String owner) {
+        this.serialNumber = serialNumber;
+        this.model = model;
+        this.carrier = carrier;
+        this.phoneNumber = phoneNumber;
+        this.owner = owner;
     }
 
     public int getSerialNumber() {
@@ -97,5 +112,9 @@ class CellPhone{
 
     public void dial(String phoneNumberDial){
         System.out.println(getOwner() + "'s phone is calling " + phoneNumberDial);
+    }
+    //overload
+    public void dial(CellPhone phone) {
+        System.out.println(owner + "'s phone is calling " + phone.getPhoneNumber());
     }
 }
