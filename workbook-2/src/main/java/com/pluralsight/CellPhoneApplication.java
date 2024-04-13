@@ -5,28 +5,38 @@ import java.util.Scanner;
 public class CellPhoneApplication {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        CellPhone phone1 = createCellPhone(scanner);
+        display(phone1);
+        CellPhone phone2 = createCellPhone(scanner);
+        display(phone2);
+
+        phone1.dial(phone2.getPhoneNumber());
+        phone2.dial(phone1.getPhoneNumber());
+    }
+
+    public static CellPhone createCellPhone(Scanner scanner) {
         CellPhone phone = new CellPhone();
         System.out.print("What is the serial number? ");
         phone.setSerialNumber(scanner.nextInt());
-        scanner.nextLine();
+        scanner.nextLine(); // Consume the newline character left by nextInt()
         System.out.print("What model is the phone? ");
         phone.setModel(scanner.nextLine());
         System.out.print("Who is the carrier? ");
         phone.setCarrier(scanner.nextLine());
-        System.out.print("What is the phone number? (888-555-1234)");
+        System.out.print("What is the phone number? (ex. 123-456-7890): ");
         phone.setPhoneNumber(scanner.nextLine());
         System.out.print("Who is the owner of the phone? ");
         phone.setOwner(scanner.nextLine());
-        displayCellPhone(phone);
+        return phone;
     }
 
-    public static void displayCellPhone(CellPhone phone){
+    public static void display(CellPhone phone){
         System.out.println("\nPhone Information:");
         System.out.println("Serial Number: " + phone.getSerialNumber());
         System.out.println("Phone Model: " + phone.getModel());
         System.out.println("Carrier: " + phone.getCarrier());
         System.out.println("Phone Number: " + phone.getPhoneNumber());
-        System.out.println("Owner: " + phone.getOwner());
+        System.out.println("Owner: " + phone.getOwner()+ "\n");
     }
 }
 
@@ -83,5 +93,9 @@ class CellPhone{
 
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    public void dial(String phoneNumberDial){
+        System.out.println(getOwner() + "'s phone is calling " + phoneNumberDial);
     }
 }
