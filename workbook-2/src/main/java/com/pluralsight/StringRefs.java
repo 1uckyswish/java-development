@@ -40,12 +40,23 @@ public class StringRefs {
 //        System.out.println(id);
 //        System.out.print(numberString);
 //        LocalDate birthDay = LocalDate.parse("2002-10-17");
-        String userInput;
-        DateTimeFormatter formatter;
-        userInput = "07 may 23";
-        formatter = DateTimeFormatter.ofPattern("dd MMMM yy");
-        LocalDate birthDay = LocalDate.parse(userInput, formatter);
-        System.out.println(birthDay);
-
+//        System.out.println(birthDay);
+        StringBuilder skills = new StringBuilder();
+// append strings to the StringBuilder object
+        skills.append("Git, ");
+        skills.append("HTML, ");
+        skills.append("CSS, ");
+        skills.append("and Bootstrap\n");
+        skills.append("JavaScript, ");
+        skills.append("ES6, ");
+        skills.append("jQuery, ");
+        skills.append("REST APIs, ");
+        skills.append("and Express\n");
+        skills.append("Angular\n");
+        skills.append("Java\n");
+// retrieve the underlying characters from
+// the StringBuilder
+        String mySkills = skills.toString();
+        System.out.println(mySkills);
     }
 }
