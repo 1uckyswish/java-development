@@ -5,10 +5,13 @@ import java.util.Arrays;
 public class TestStatistics {
     public static void main(String[] args) {
         int[] scores = {85, 92, 78, 65, 87, 70, 95, 81, 88, 73};
-        System.out.println(getHighScore(scores));
-        System.out.println(getLowScore(scores));
-        System.out.println(getAverage(scores));
-        System.out.println(getMedian(scores));
+        System.out.println("High Score: " + getHighScore(scores));
+        System.out.println("Low Score: " + getLowScore(scores));
+        System.out.println("Average Score: " + getAverage(scores));
+        System.out.println("Median Score: " + getMedian(scores));
+        System.out.println("Phew! I was bracing myself for the worst, thinking I'd have to curve the test.");
+        System.out.print("But hey, you all surprised me! Did better than I anticipated. No curves needed!");
+
     }
 
     public static int getHighScore(int[] scores){
