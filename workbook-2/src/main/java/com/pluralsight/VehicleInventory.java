@@ -1,6 +1,5 @@
 package com.pluralsight;
 
-
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -11,9 +10,9 @@ public class VehicleInventory {
     static int vehicleCount = STARTING_CAR_COUNT;
 
     public static void main(String[] args) {
-        //Preload the array of vehicles at the start
+        // Preload the array of vehicles at the start
         preloadVehicles();
-        //Prompt the user questions
+        // Prompt the user questions
         promptUser();
 
     }
@@ -69,33 +68,34 @@ public class VehicleInventory {
 
     public static void listAllVehicles(Scanner scanner) {
         System.out.println("\nList of all vehicles in inventory:");
-        // * loop through the array to show current vehicles. the condition checks the current vehicle count.
+        // * loop through the array to show current vehicles. the condition checks the
+        // current vehicle count.
         for (int i = 0; i < vehicleCount; i++) {
-//            if (i < vehicleCount && vehicles[i] != null) {
-//                System.out.println(vehicles[i]);
-//
-//            }
+            // if (i < vehicleCount && vehicles[i] != null) {
+            // System.out.println(vehicles[i]);
+            //
+            // }
             System.out.println(vehicles[i]);
         }
-        //* prompt the user again for options after finishing up
+        // * prompt the user again for options after finishing up
         askUserForRedo(scanner);
     }
 
     public static void searchByPriceRange(Scanner scanner) {
-        //* Grab price range
+        // * Grab price range
         System.out.print("Enter minimum car price: $");
         float minPrice = scanner.nextFloat();
 
         System.out.print("Enter maximum car price: $");
         float maxPrice = scanner.nextFloat();
-        scanner.nextLine(); //! eat buffer line
+        scanner.nextLine(); // ! eat buffer line
         System.out.println();
-        //* a variable to store if car is found else it will print no car found
+        // * a variable to store if car is found else it will print no car found
         boolean carFound = false;
 
         for (int i = 0; i < vehicleCount; i++) {
             // user getters to retrieve each objects value to test case
-            //* IF test if passed it will update boolean to true
+            // * IF test if passed it will update boolean to true
             if (vehicles[i].getPrice() >= minPrice && vehicles[i].getPrice() <= maxPrice) {
                 System.out.println("Vehicle found:");
                 System.out.println("Vehicle ID: " + vehicles[i].getVehicleId());
@@ -108,23 +108,23 @@ public class VehicleInventory {
             }
 
         }
-        //! if boolean is not updated and stays false it will print no vehicle found
+        // ! if boolean is not updated and stays false it will print no vehicle found
         if (!carFound) {
             System.out.println("No vehicles found within the specified price range.");
         }
-        //* prompt the user again for options after finishing up
+        // * prompt the user again for options after finishing up
         askUserForRedo(scanner);
 
     }
 
-
     public static void addCar(Scanner scanner) {
-        //! If vehicle count has reached its max the user can not continue so rerun program
+        // ! If vehicle count has reached its max the user can not continue so rerun
+        // program
         if (vehicleCount >= MAX_CARS) {
             System.out.println("Cannot add more vehicles. Inventory is full.");
             askUserForRedo(scanner);
         }
-        //* Ask user various car info to add to inventory
+        // * Ask user various car info to add to inventory
         System.out.print("Enter Vehicle ID: ");
         long vehicleId = scanner.nextLong();
         scanner.nextLine();
@@ -162,17 +162,19 @@ public class VehicleInventory {
     }
 
     public static void searchByMakeModel(Scanner scanner) {
-        //* Ask user for car model or make as string
+        // * Ask user for car model or make as string
         System.out.print("Enter Make/Model To Search: ");
-        String makeModelInput = scanner.nextLine().toLowerCase(); // Convert input to lowercase for case-insensitive comparison
+        String makeModelInput = scanner.nextLine().toLowerCase(); // Convert input to lowercase for case-insensitive
+        // comparison
         System.out.println();
         boolean carFound = false;
 
         for (int i = 0; i < vehicleCount; i++) {
-            String makeModel = vehicles[i].getMakeModel().toLowerCase(); // Convert vehicle make/model to lowercase for comparison
+            String makeModel = vehicles[i].getMakeModel().toLowerCase(); // Convert vehicle make/model to lowercase for
+            // comparison
             // user getters to retrieve each objects value to test case
-            //* IF test if passed it will update boolean to true
-            //** USE STRING METOD TO FIND IF MAKE CONTAINS A WORD FROM USER INPUT** //
+            // * IF test if passed it will update boolean to true
+            // ** USE STRING METOD TO FIND IF MAKE CONTAINS A WORD FROM USER INPUT** //
             if (makeModel.contains(makeModelInput)) {
                 System.out.println("Vehicle found:");
                 System.out.println("Vehicle ID: " + vehicles[i].getVehicleId());
@@ -185,28 +187,28 @@ public class VehicleInventory {
             }
 
         }
-        //! if boolean is not updated and stays false it will print no vehicle found
+        // ! if boolean is not updated and stays false it will print no vehicle found
         if (!carFound) {
             System.out.println("No vehicles found with the given make/model.");
         }
-        //* prompt the user again for options after finishing up
+        // * prompt the user again for options after finishing up
         askUserForRedo(scanner);
     }
 
-
     public static void searchByColor(Scanner scanner) {
-        //* Ask user for car COLOR as string
+        // * Ask user for car COLOR as string
         System.out.print("Enter color to search: ");
-        String colorInput = scanner.nextLine().toLowerCase(); // Convert input to lowercase for case-insensitive comparison
+        String colorInput = scanner.nextLine().toLowerCase(); // Convert input to lowercase for case-insensitive
+        // comparison
         System.out.println();
-        //* a variable to store if car is found else it will print no car found
+        // * a variable to store if car is found else it will print no car found
         boolean carFound = false;
 
         for (int i = 0; i < vehicleCount; i++) {
             String color = vehicles[i].getColor().toLowerCase(); // Convert vehicle color to lowercase for comparison
             // user getters to retrieve each objects value to test case
-            //* IF test if passed it will update boolean to true
-            //** USE STRING METOD TO FIND IF MAKE CONTAINS A WORD FROM USER INPUT** //
+            // * IF test if passed it will update boolean to true
+            // ** USE STRING METOD TO FIND IF MAKE CONTAINS A WORD FROM USER INPUT** //
             if (color.contains(colorInput)) {
                 System.out.println("Vehicle found:");
                 System.out.println("Vehicle ID: " + vehicles[i].getVehicleId());
@@ -218,15 +220,11 @@ public class VehicleInventory {
                 carFound = true;
             }
         }
-        //! if boolean is not updated and stays false it will print no vehicle found
+        // ! if boolean is not updated and stays false it will print no vehicle found
         if (!carFound) {
             System.out.println("No vehicles found with the given color.");
         }
-        //* prompt the user again for options after finishing up
+        // * prompt the user again for options after finishing up
         askUserForRedo(scanner);
     }
-
-
 }
-
-
