@@ -4,68 +4,6 @@ package com.pluralsight;
 import java.util.Arrays;
 import java.util.Scanner;
 
-class Vehicle{
-    private long vehicleId;
-    private String makeModel;
-    private String color;
-    private int odometerReading;
-    private float price;
-
-    public Vehicle(long vehicleId, String makeModel, String color, int odometerReading, float price) {
-        this.vehicleId = vehicleId;
-        this.makeModel = makeModel;
-        this.color = color;
-        this.odometerReading = odometerReading;
-        this.price = price;
-    }
-
-    public long getVehicleId() {
-        return vehicleId;
-    }
-
-    public void setVehicleId(long vehicleId) {
-        this.vehicleId = vehicleId;
-    }
-
-    public String getMakeModel() {
-        return makeModel;
-    }
-
-    public void setMakeModel(String makeModel) {
-        this.makeModel = makeModel;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public int getOdometerReading() {
-        return odometerReading;
-    }
-
-    public void setOdometerReading(int odometerReading) {
-        this.odometerReading = odometerReading;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Model: %s - Color: %s - Car Mileage: %d - Car Price: $%,.2f",
-                makeModel, color, odometerReading, price);
-    }
-}
-
 public class VehicleInventory {
     static final int MAX_CARS = 7;
     static final int STARTING_CAR_COUNT = 6;
@@ -80,7 +18,7 @@ public class VehicleInventory {
 
     }
 
-    public static void preloadVehicles(){
+    public static void preloadVehicles() {
         vehicles[0] = new Vehicle(101121, "Ford Explorer", "Red", 45000, 13500);
         vehicles[1] = new Vehicle(101122, "Toyota Camry", "Blue", 60000, 11000);
         vehicles[2] = new Vehicle(101123, "Chevrolet Malibu", "Black", 50000, 9700);
@@ -180,7 +118,7 @@ public class VehicleInventory {
     }
 
 
-    public static void addCar(Scanner scanner){
+    public static void addCar(Scanner scanner) {
         //! If vehicle count has reached its max the user can not continue so rerun program
         if (vehicleCount >= MAX_CARS) {
             System.out.println("Cannot add more vehicles. Inventory is full.");
@@ -212,12 +150,12 @@ public class VehicleInventory {
         askUserForRedo(scanner);
     }
 
-    public static void askUserForRedo(Scanner scanner){
+    public static void askUserForRedo(Scanner scanner) {
         System.out.println("Do you need help with anything else? (yes/no) ");
         String answer = scanner.nextLine();
-        if(answer.equalsIgnoreCase("yes")){
+        if (answer.equalsIgnoreCase("yes")) {
             promptUser();
-        }else{
+        } else {
             System.out.println("Thank you for visiting Java Motors EST 1995");
             System.out.println("Goodbye have a nice day");
         }
