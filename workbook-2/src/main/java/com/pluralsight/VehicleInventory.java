@@ -61,8 +61,8 @@ class Vehicle{
 
     @Override
     public String toString() {
-        return String.format("%s, %s, %s, %d, %,.2f",
-                makeModel, color, makeModel, odometerReading, price);
+        return String.format("Model: %s - Color: %s - Car Mileage: %d - Car Price: $%,.2f",
+                makeModel, color, odometerReading, price);
     }
 }
 
