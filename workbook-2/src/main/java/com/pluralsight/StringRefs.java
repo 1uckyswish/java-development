@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class StringRefs {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         String welcome = "Big Tex says \"Howdy\"!";
         String welcome2 = "Let's get\r this started!";
 
@@ -57,6 +57,17 @@ public class StringRefs {
 // retrieve the underlying characters from
 // the StringBuilder
         String mySkills = skills.toString();
-        System.out.println(mySkills);
+//        System.out.println(mySkills);
+        LoopingExercises.WhileLoop loop = new LoopingExercises.WhileLoop();
+//        loop.main(args);
+
+        String[] colors = {"red", "white", "blue"};
+        String[] colorCopy = new String[3];
+// copy from colors at subscript 1 to
+// colorCopy at 0 -- move 2 elements
+        System.arraycopy(colors, 0, colorCopy, 0, colors.length);
+        for (int i = 0; i < colorCopy.length; i++) {
+            System.out.println(colorCopy[i]);
+        }
     }
 }
