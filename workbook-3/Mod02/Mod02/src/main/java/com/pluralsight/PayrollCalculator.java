@@ -8,14 +8,20 @@ import java.util.regex.Pattern;
 public class PayrollCalculator {
     public static void main(String[] args) {
         //Run program
-        readFile();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the name of the file employee file to process: ");
+        String processFile = scanner.nextLine().trim();
+        System.out.println();
+        System.out.print("Enter the name of the payroll file to create: ");
+        String fileToCreate = scanner.nextLine().trim();
+        readFile(processFile, fileToCreate);
     }
 
-    public static void readFile() {
+    public static void readFile(String processFile, String fileToCreate) {
         //Try to catch for file input reading
         try{
             //Instantiate a file reader stream
-            FileInputStream file = new FileInputStream("employees.csv");
+            FileInputStream file = new FileInputStream(processFile);
             //Pass the file to the scanner for it to read
             Scanner scanner = new Scanner(file);
             //Declare a variable for the scanner to read each line
@@ -33,11 +39,62 @@ public class PayrollCalculator {
                 Employee employee = createEmployee(values);
                 //After object is made then pass it to display the values of getters one by one.
                 displayEmployeeDetails(employee);
+
+                if(fileToCreate.endsWith(".json")){
+                    createJSON(employee, fileToCreate);
+                }else{
+                    createCSV(employee, fileToCreate);
+                }
             }
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
     }
+
+    public static void createCSV(Employee employee, String fileToCreate){
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileToCreate, true));
+            File file = new File(fileToCreate);
+            if (file.length() == 0) {
+                // Write the header only if the file is empty
+                String text = "id|name|gross pay";
+                writer.write(text);
+                writer.newLine();
+            }
+            String formattedEmployee = String.format("%d|%s|%.2f", employee.getEmployeeId(), employee.getName(), employee.getGrossPay());
+            writer.write(formattedEmployee);
+            writer.newLine();
+            writer.close();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public static void createJSON(Employee employee, String fileToCreate){
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileToCreate, true));
+            File file = new File(fileToCreate);
+            // If the file is empty, write the opening '['
+//            if (file.length() == 0) {
+//                writer.write("[");
+//                writer.newLine();
+//            }
+            String formattedEmployee = String.format("{ \"id\": %d, \"name\": \"%s\", \"grossPay\": %.2f },",
+                    employee.getEmployeeId(), employee.getName(), employee.getGrossPay());
+
+            writer.write(formattedEmployee);
+            writer.newLine();
+
+            // Close the writer
+            writer.close();
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+
 
     public static Employee createEmployee(String[] values) {
         //grab each value by its index. This never changes
