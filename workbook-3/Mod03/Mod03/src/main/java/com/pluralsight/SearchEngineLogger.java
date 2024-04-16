@@ -18,7 +18,7 @@ public class SearchEngineLogger {
     public static void search() {
         try {
             //Make a new file
-            BufferedWriter writer = new BufferedWriter(new FileWriter("logs.txt"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("logs.txt", true));
             //Write start of program
             writer.write(getDate() + " Launch" );
             writer.newLine();
@@ -31,6 +31,7 @@ public class SearchEngineLogger {
                 //Check if user wanst to exit out
                 if(userInput.equalsIgnoreCase("X")){
                     writer.write(getDate() + " exit" );
+                    writer.newLine();
                     System.out.println("Exiting...");
                     break;
                 }
