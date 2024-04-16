@@ -3,6 +3,7 @@ package com.pluralsight;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.util.regex.Pattern;
 
 public class FormatDates {
     public static void main(String[] args) {
@@ -62,6 +63,5 @@ public class FormatDates {
         DateTimeFormatter myFormattedDate6 = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss", Locale.US);
         formattedDate6 = myFormattedDate6.format(date6.atZone(ZoneId.systemDefault()));
         System.out.println(formattedDate6); // Corrected variable name
-
     }
 }
