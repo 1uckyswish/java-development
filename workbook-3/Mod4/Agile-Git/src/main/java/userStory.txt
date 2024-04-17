@@ -1,0 +1,16 @@
+###Requirements###
+Display products list
+
+
+*** User Story ***
+As a customer, I want to view a list of products, so that I
+can determine what I want to buy.
+
+- Ask for input from user. Find a method to receive input and give output
+- When receiving input. Be able to output filtered output that allows user interest
+- If user likes output given then prompt them with purchase while being an account holder
+- As a store owner give them the option to create, delete and update products (CREATE)
+- As a store owner prompt the owner with a list of customer placed order based by ASC order
+- As a store owner give them the option to create, delete and update products (DELETE)
+- As a store owner give them the option to create, delete and update products (UPDATE)
+- Print a summary of order for it go from warehouse to shipping, all the way to customer
