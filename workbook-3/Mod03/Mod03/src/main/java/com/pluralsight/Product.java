@@ -18,9 +18,4 @@ public class Product {
     public float getPrice() {
         return this.price;
     }
-
-//    public int compareTo(Product other) {
-//        // Compare based on product ID
-//        return Integer.compare(this.id, other.id);
-//    }
 }
