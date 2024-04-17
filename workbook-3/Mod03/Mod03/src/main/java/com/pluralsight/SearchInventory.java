@@ -1,8 +1,6 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -45,6 +43,7 @@ public class SearchInventory {
         System.out.print("Please Enter the product price: ");
         float newPrice = scanner.nextFloat();
         inventory.add(new Product(newId, newName, newPrice));
+        addToFile(new Product(newId, newName, newPrice));
         System.out.println("New product added");
         System.out.println("******** SUMMARY OF NEW PRODUCT ADDED ********");
         for (int i = 0; i < inventory.size(); i++) {
@@ -56,6 +55,17 @@ public class SearchInventory {
         }
 
         thankUser();
+    }
+
+    public static void addToFile(Product product){
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter("inventory.csv", true));
+            writer.newLine();
+            writer.write(product.getId()+"|"+ product.getName()+"|"+product.getPrice());
+            writer.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public static void thankUser() {
@@ -71,6 +81,7 @@ public class SearchInventory {
             return;
         } else {
             System.out.println("Invalid response. Please enter 'yes' or 'no'.");
+            startProgram();
         }
     }
 
