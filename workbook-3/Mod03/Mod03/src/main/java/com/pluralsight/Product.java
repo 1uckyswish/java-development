@@ -22,4 +22,7 @@ public class Product {
     public float getPrice() {
         return this.price;
     }
+    public String toString(){
+        return "Product ID: " + id + ", Name: " + name + ", Price: " + price;
+    }
 }
