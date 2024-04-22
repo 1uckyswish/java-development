@@ -1,0 +1,12 @@
+    1- We need an Object of person for the Guest and Clerk
+    2- We need an Object to hold the room details with the it being checked in or checked out. Also store the room key
+    3- We need an Object for a recipet that will hold accommodations and also a price with quantity attached to it
+    4- We need an object for the type of food, the price. if you want to be extra you can add nutrition attached
+    5- We need 3 objects. The person, Meal, and hotel. SO we can track it all in one object that handles this logic
+    6- We need an object that will hold communication to a selected area as well as the product needing repair
+    7- The prior Person object will be used for updating the checked in or checked out attribute. We need a object to hold rooms and update if they are clean or not.
+
+    *** What we need to track ***
+
+    - We need to track the users information, Hotel costs (food, upgrades, room type), and Hotel that is checked out
+    - We need to perform a few actions. Acculmate the total of guest costs. Handle the rooms by checking in or checking out. We also need to handle cleaning
