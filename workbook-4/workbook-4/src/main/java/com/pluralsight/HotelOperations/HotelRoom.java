@@ -63,6 +63,8 @@ public class HotelRoom {
 
     public void cleanRoom(){
         isDirty = false;
+        isAvailable = true;
+        isOccupied = false;
     }
 
     public void checkOut(){
