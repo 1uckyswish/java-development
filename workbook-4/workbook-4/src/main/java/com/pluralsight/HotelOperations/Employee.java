@@ -1,11 +1,14 @@
 package com.pluralsight.HotelOperations;
 
+import java.time.LocalDateTime;
+
 public class Employee {
     private int employeeId;
     private String name;
     private String department;
     private double payRate;
     private double hoursWorked;
+    private double startTime; // Track start time when punching in
 
     public Employee(int employeeId, String name, String department, double payRate, double hoursWorked) {
         this.employeeId = employeeId;
@@ -13,6 +16,7 @@ public class Employee {
         this.department = department;
         this.payRate = payRate;
         this.hoursWorked = hoursWorked;
+
     }
 
     public int getEmployeeId() {
@@ -67,4 +71,29 @@ public class Employee {
         // Overtime hours are the hours worked beyond 40
         return Math.max(hoursWorked - 40, 0); // Return 0 if hours worked are 40 or less
     }
+
+    // Punch in method to track start time
+    public void punchIn(double time) {
+        startTime = time;
+    }
+
+    public void punchIn(){
+        LocalDateTime time = LocalDateTime.now();
+        startTime = Double.parseDouble(time.toString());
+    }
+
+    public void punchOut(){
+        LocalDateTime time = LocalDateTime.now();
+        startTime = Double.parseDouble(time.toString());
+    }
+
+    // Punch out method to calculate hours worked and update total hours worked
+    public void punchOut(double time) {
+        double hours = time - startTime;
+        hoursWorked += hours;
+    }
+
+
+
+
 }
