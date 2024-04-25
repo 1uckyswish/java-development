@@ -6,6 +6,14 @@ public class Vehicle {
     private int cargoCapacity;
     private int fuel;
 
+    public Vehicle(String color, int numberOfPassengers, int cargoCapacity, int fuel) {
+        System.out.println("New Vehicle Made :)");
+        this.color = color;
+        this.numberOfPassengers = numberOfPassengers;
+        this.cargoCapacity = cargoCapacity;
+        this.fuel = fuel;
+    }
+
     public String getColor() {
         return color;
     }
@@ -22,6 +30,7 @@ public class Vehicle {
         this.numberOfPassengers = numberOfPassengers;
     }
 
+
     public int getCargoCapacity() {
         return cargoCapacity;
     }
@@ -32,6 +41,16 @@ public class Vehicle {
 
     public int getFuel() {
         return fuel;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "color='" + color + '\'' +
+                ", numberOfPassengers=" + numberOfPassengers +
+                ", cargoCapacity=" + cargoCapacity +
+                ", fuel=" + fuel +
+                '}';
     }
 
     public void setFuel(int fuel) {
