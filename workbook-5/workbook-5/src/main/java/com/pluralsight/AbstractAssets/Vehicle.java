@@ -1,8 +1,6 @@
-package com.pluralsight.AssetManager;
+package com.pluralsight.AbstractAssets;
 
-import java.time.LocalDateTime;
-
-public class Vehicle extends Asset{
+public class Vehicle extends Asset {
     private String makeModel;
     private int year;
     private int odometer;
@@ -38,7 +36,7 @@ public class Vehicle extends Asset{
         this.odometer = odometer;
     }
 
-    @Override
+
     public double getValue() {
         int currentYear = java.time.LocalDate.now().getYear();
         int age = currentYear - year;

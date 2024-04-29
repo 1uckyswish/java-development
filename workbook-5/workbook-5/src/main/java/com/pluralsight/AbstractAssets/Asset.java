@@ -1,6 +1,6 @@
-package com.pluralsight.AssetManager;
+package com.pluralsight.AbstractAssets;
 
-public class Asset {
+public abstract class Asset {
     private String descirption;
     private String dateAcquired;
     private double originalCost;

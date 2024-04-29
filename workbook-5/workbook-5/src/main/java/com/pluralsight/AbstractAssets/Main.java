@@ -1,4 +1,4 @@
-package com.pluralsight.AssetManager;
+package com.pluralsight.AbstractAssets;
 
 import java.util.ArrayList;
 
@@ -31,5 +31,12 @@ public class Main {
             System.out.printf("$%,.2f%n", asset.getValue());
             System.out.println();
         }
+        //This fails because 'Asset' is abstract; cannot be instantiated
+        // Asset testClass = new Asset();
+
+        Cash mattressSavings = new Cash("life savings", "2024-04-03", 300.20);
+
+        System.out.println(mattressSavings.getValue());
+
     }
 }

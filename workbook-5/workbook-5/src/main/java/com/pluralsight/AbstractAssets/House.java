@@ -1,6 +1,6 @@
-package com.pluralsight.AssetManager;
+package com.pluralsight.AbstractAssets;
 
-public class House extends Asset{
+public class House extends Asset {
     private String address;
     private int condition;
     private int squareFoot;
@@ -46,7 +46,6 @@ public class House extends Asset{
         this.lotSize = lotSize;
     }
 
-    @Override
     public double getValue(){
         double extraTax = squareFoot * 0.25;
         if(condition == 1){
