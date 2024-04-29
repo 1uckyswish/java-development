@@ -14,6 +14,7 @@ public class Main {
         FixedList<LocalDate> dates = new FixedList<>(2);
         dates.add(LocalDate.now());
         dates.add(LocalDate.now());
-        dates.add(15); // this line should fail
+        dates.add(LocalDate.now()); // this line should fail
+        System.out.println(dates.getItems().size());
     }
 }
