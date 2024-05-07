@@ -1,0 +1,17 @@
+1 - Food products, Drinks and a lot of ethnic foods in boxes/packages
+2 - Laughing Lumberjack Lager
+3 - Mexico, Uk, Sweden
+4 - 1998-05-06 00:00:00. filtering through the data from the query
+5 - 1996-07-04 00:00:00. Filtering through the data from the query
+6 - 93
+7 - no
+8 - 263.5000
+9 - 2.5000
+10 - 
+	A - orders table
+	B - try to get all info from order details and match the customer with the orders table
+	C - 
+		I - The start date or end date
+	        II - see how much the customer has spent with us 
+		III - find the most ordered item and least ordered item
+		IV - Possibly when the order was delivered 
