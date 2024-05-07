@@ -1,0 +1,16 @@
+-- 1. SELECT * FROM northwind.Products;
+-- 2. SELECT ProductID, ProductName, UnitPrice FROM northwind.Products;
+-- 3. SELECT ProductID, ProductName, UnitPrice FROM northwind.Products ORDER BY UnitPrice ASC;
+-- 4. Konbu, Guaran Fantstica, Geitost, Filo Mix, Tourtire
+-- 5. SELECT ProductName, UnitsInStock, UnitPrice FROM northwind.Products WHERE UnitsInStock BETWEEN 0 AND 100 ORDER BY UnitPrice ASC;
+-- 6. SELECT ProductName, UnitsInStock, UnitPrice FROM northwind.Products WHERE UnitsInStock BETWEEN 0 AND 100 ORDER BY UnitPrice DESC, ProductName ASC;
+-- 7. SELECT ProductName, UnitsInStock, UnitsOnOrder FROM northwind.ProductsWHERE UnitsInStock = 0 AND UnitsOnOrder > 0 ORDER BY ProductName;
+-- 8. SELECT * FROM northwind.Categories;
+-- 9. SELECT * FROM northwind.Categories WHERE CategoryName = "Seafood";
+-- 10. SELECT * FROM northwind.Products WHERE CategoryID = 8;
+-- 11. SELECT FirstName, LastName FROM northwind.Employees;
+-- 12. SELECT * FROM northwind.Employees WHERE Title LIKE "%manager%";
+-- 13. SELECT DISTINCT(Title) FROM northwind.Employees;
+-- 14. SELECT * FROM northwind.Employees WHERE Salary BETWEEN 200 AND 2500;
+-- 15. SELECT * FROM northwind.Suppliers;
+-- 16. SELECT * FROM northwind.Products WHERE SupplierID = 4;
