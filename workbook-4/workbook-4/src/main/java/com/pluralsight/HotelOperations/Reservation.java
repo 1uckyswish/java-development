@@ -55,4 +55,14 @@ public class Reservation {
     public double getReservationTotal() {
         return pricePerNight * numberOfNights;
     }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "roomType='" + roomType + '\'' +
+                ", pricePerNight=" + pricePerNight +
+                ", numberOfNights=" + numberOfNights +
+                ", isWeekend=" + isWeekend +
+                '}';
+    }
 }

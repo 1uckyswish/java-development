@@ -1,6 +1,7 @@
 package com.pluralsight.HotelOperations;
 
 public class HotelRoom {
+
     private int numberOfBeds;
     private double price;
     private boolean isOccupied;
@@ -71,5 +72,16 @@ public class HotelRoom {
         cleanRoom();
         isAvailable = true;
         isOccupied = false;
+    }
+
+    @Override
+    public String toString() {
+        return "HotelRoom{" +
+                "numberOfBeds=" + numberOfBeds +
+                ", price=" + price +
+                ", isOccupied=" + isOccupied +
+                ", isDirty=" + isDirty +
+                ", isAvailable=" + isAvailable +
+                '}';
     }
 }

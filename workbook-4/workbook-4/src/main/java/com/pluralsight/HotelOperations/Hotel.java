@@ -45,6 +45,8 @@ public class Hotel {
         if (isSuite) {
             if (numberOfRooms <= numberOfSuites - bookedSuites) {
                 bookedSuites += numberOfRooms;
+//                getAvailableSuites();
+                removeSuites();
                 return true;
             } else {
                 return false;
@@ -52,6 +54,8 @@ public class Hotel {
         } else {
             if (numberOfRooms <= numberOfRooms - bookedBasicRooms) {
                 bookedBasicRooms += numberOfRooms;
+//                getAvailableBasicRooms();
+                removebasic();
                 return true;
             } else {
                 return false;
@@ -65,5 +69,24 @@ public class Hotel {
 
     public int getAvailableBasicRooms() {
         return numberOfRooms - bookedBasicRooms;
+    }
+
+    public void removeSuites(){
+        numberOfSuites--;
+    }
+
+    public void removebasic(){
+        numberOfRooms--;
+    }
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "name='" + name + '\'' +
+                ", numberOfSuites=" + numberOfSuites +
+                ", numberOfRooms=" + numberOfRooms +
+                ", bookedSuites=" + bookedSuites +
+                ", bookedBasicRooms=" + bookedBasicRooms +
+                '}';
     }
 }
