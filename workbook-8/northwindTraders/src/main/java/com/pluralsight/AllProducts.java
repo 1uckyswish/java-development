@@ -27,7 +27,9 @@ public class AllProducts {
             System.out.print(resultSet.getString("UnitPrice") + "  ");
             System.out.print(resultSet.getString("UnitsinStock") + "\n");
         }
-
+        resultSet.close();
+        preparedStatement.close();
+        connection.close();
        }catch (Exception e){
            e.printStackTrace();
        }
