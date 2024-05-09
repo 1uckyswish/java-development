@@ -13,14 +13,20 @@ public class SakilaMovies {
         String username = args[0];
         String password = args[1];
 
+    BasicDataSource dataSource = new BasicDataSource();
+    dataSource.setUrl("jdbc:mysql://localhost:3306/sakila");
+    dataSource.setUsername(username);
+    dataSource.setPassword(password);
+    displayMoviesAndActor(dataSource);
+    }
 
+    public static void displayMoviesAndActor(BasicDataSource dataSource){
+        try(Connection connection = dataSource.getConnection()
 
+        ){
 
-
-
-
-
-
-
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
