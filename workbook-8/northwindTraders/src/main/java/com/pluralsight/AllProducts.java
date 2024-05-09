@@ -46,7 +46,7 @@ public class AllProducts {
                     System.out.print("Please insert a CategoryID to display all products (between 1 through 8): ");
                     Scanner scanner = new Scanner(System.in);
                     int categoryId = scanner.nextInt();
-
+                    scanner.nextLine();
                     getAllProducts(args, String.valueOf(categoryId));
                     if (categoryId < 1 || categoryId > 8) {
                         System.out.println("Invalid CategoryID. Please insert a value between 1 through 8.");
