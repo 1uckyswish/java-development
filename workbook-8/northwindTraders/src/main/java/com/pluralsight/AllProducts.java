@@ -35,9 +35,10 @@ public class AllProducts {
                     args[0],
                     args[1]
             );
-            String query = "SELECT * FROM Customers ORDER BY Country";
+            String query = "SELECT * FROM Customers ORDER BY ?";
             preparedStatement = connection.prepareStatement(query);
-            //preparedStatement.setString(1, "Sa%"); if we need to set params for query with ? index based
+           // if we need to set params for a query with ? index based
+            preparedStatement.setString(1, "Country");
             resultSet = preparedStatement.executeQuery();
             System.out.print("CompanyName  ");
             System.out.print("ContactName  ");
