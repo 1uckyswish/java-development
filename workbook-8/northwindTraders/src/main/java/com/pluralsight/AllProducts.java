@@ -10,8 +10,8 @@ public class AllProducts {
        try{
            Connection connection = DriverManager.getConnection(
             "jdbc:mysql://127.0.0.1:3306/northwind",
-                   "root",
-                   "password"
+                   args[0],
+                   args[1]
            );
         String query = "SELECT * FROM Products";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
