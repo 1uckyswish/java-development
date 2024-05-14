@@ -8,8 +8,7 @@ import org.springframework.context.ApplicationContext;
 public class NorthwindTradersSpringBootApplication {
 
 	public static void main(String[] args) {
-		ApplicationContext context;
-		context = SpringApplication.run(NorthwindTradersSpringBootApplication.class, args);
+		SpringApplication.run(NorthwindTradersSpringBootApplication.class, args);
 	}
 
 }
