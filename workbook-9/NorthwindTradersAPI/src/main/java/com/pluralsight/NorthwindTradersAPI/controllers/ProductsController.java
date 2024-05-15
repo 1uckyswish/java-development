@@ -42,4 +42,10 @@ public class ProductsController {
         productDao.udpate(id, product);
     }
 
+    @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void deleteProduct(@PathVariable int id) {
+        productDao.delete(id);
+    }
+
 }

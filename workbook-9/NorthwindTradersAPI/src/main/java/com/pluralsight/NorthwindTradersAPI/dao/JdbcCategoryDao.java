@@ -109,4 +109,21 @@ public class JdbcCategoryDao implements CategoryDao{
         }
     }
 
+    @Override
+    public void delete(int id) {
+        try (Connection connection = dataSource.getConnection()) {
+            String sql = "DELETE FROM Categories WHERE CategoryID = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setInt(1, id);
+                int affectedRows = preparedStatement.executeUpdate();
+                if (affectedRows == 0) {
+                    throw new RuntimeException("Deleting category failed, no rows affected.");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Handle the exception (e.g., log it, throw a custom exception)
+        }
+    }
+
 }
