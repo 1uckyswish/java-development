@@ -37,4 +37,9 @@ public class ProductsController {
         return newProduct;
     }
 
+    @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
+    public void updateProduct(@PathVariable int id, @RequestBody Product product) {
+        productDao.udpate(id, product);
+    }
+
 }

@@ -36,4 +36,9 @@ public class CategoriesController {
         Category newCategory = categoryDao.insert(category);
         return newCategory;
     }
+
+    @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
+    public void updateCategory(@PathVariable int id, @RequestBody Category category){
+        categoryDao.update(id, category);
+    }
 }

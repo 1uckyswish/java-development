@@ -104,6 +104,25 @@ public class JdbcProductDao implements ProductDao {
         }
     }
 
+    @Override
+    public void udpate(int id, Product product) {
+        try (Connection connection = dataSource.getConnection()) {
+            String sql = "UPDATE Products SET ProductName = ?, CategoryID = ?, UnitPrice = ? WHERE ProductID = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setString(1, product.getProductName());
+                preparedStatement.setInt(2, product.getCategoyrId());
+                preparedStatement.setDouble(3, product.getUnitPrice());
+                preparedStatement.setInt(4, id);
+                int affectedRows = preparedStatement.executeUpdate();
+                if (affectedRows == 0) {
+                    throw new RuntimeException("Updating product failed, no rows affected.");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Handle the exception (e.g., log it, throw a custom exception)
+        }
+    }
 
 
 }
