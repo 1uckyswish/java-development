@@ -3,10 +3,8 @@ package com.pluralsight.NorthwindTradersAPI.controllers;
 import com.pluralsight.NorthwindTradersAPI.dao.CategoryDao;
 import com.pluralsight.NorthwindTradersAPI.models.Category;
 import com.pluralsight.NorthwindTradersAPI.models.Product;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,5 +28,12 @@ public class CategoriesController {
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public Category getCategory(@PathVariable int id){
        return categoryDao.getById(id);
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.CREATED)
+    public Category insertCategory(@RequestBody Category category){
+        Category newCategory = categoryDao.insert(category);
+        return newCategory;
     }
 }

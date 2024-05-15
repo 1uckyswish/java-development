@@ -3,13 +3,13 @@ package com.pluralsight.NorthwindTradersAPI.models;
 public class Product {
     private int productId;
     private String productName;
-    private int categoyrId;
+    private int categoryId;
     private double unitPrice;
 
-    public Product(int productId, String productName, int categoyrId, double unitPrice){
+    public Product(int productId, String productName, int categoryId, double unitPrice){
         this.productId = productId;
         this.productName = productName;
-        this.categoyrId = categoyrId;
+        this.categoryId = categoryId;
         this.unitPrice = unitPrice;
     }
 
@@ -30,11 +30,11 @@ public class Product {
     }
 
     public int getCategoyrId() {
-        return categoyrId;
+        return categoryId;
     }
 
-    public void setCategoyrId(int categoyrId) {
-        this.categoyrId = categoyrId;
+    public void setCategoyrId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public double getUnitPrice() {
@@ -47,6 +47,6 @@ public class Product {
 
     @Override
     public String toString(){
-        return productId + " " + productName + " " + categoyrId + " " + unitPrice;
+        return productId + " " + productName + " " + categoryId + " " + unitPrice;
     }
 }
