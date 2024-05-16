@@ -8,6 +8,7 @@ public class main {
     public static void main(String[] args) {
         List<Person> myFamily = new ArrayList<>();
         myFamily.add( new Person("Dana", "Wyatt", 63) );
+        myFamily.add( new Person("lingo", "Wyatt", 63) );
         myFamily.add( new Person("Zachary", "Westly", 31) );
         myFamily.add( new Person("Elisha", "Aslan", 14) );
         myFamily.add( new Person("Ian", "Auston", 16) );
@@ -16,6 +17,9 @@ public class main {
 
         Collections.sort(myFamily);
 
-        System.out.println(myFamily);
+        // Display the sorted array.
+        for (Person person : myFamily) {
+            System.out.println(person);
+        }
     }
 }
