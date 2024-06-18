@@ -5,12 +5,29 @@ public class Product {
     private String name;
     private int category;
     private double price;
+    private String categoryName;
+
+    public Product(int productId, String name, int category, double price,String categoryName) {
+        this.productId = productId;
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.categoryName = categoryName;
+    }
 
     public Product(int productId, String name, int category, double price) {
         this.productId = productId;
         this.name = name;
         this.category = category;
         this.price = price;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public int getProductId() {
@@ -50,8 +67,9 @@ public class Product {
         return "Product{" +
                 "productId=" + productId +
                 ", name='" + name + '\'' +
-                ", category='" + category + '\'' +
+                ", category=" + category +
                 ", price=" + price +
+                ", categoryName='" + categoryName + '\'' +
                 '}';
     }
 }

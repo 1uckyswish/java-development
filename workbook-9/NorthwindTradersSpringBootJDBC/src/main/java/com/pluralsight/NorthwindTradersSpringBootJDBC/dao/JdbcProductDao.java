@@ -42,7 +42,9 @@ public class JdbcProductDao implements ProductDao{
     public List<Product> getAll() {
         List<Product> products = new ArrayList<>();
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "SELECT * FROM Products";
+            String sql = "SELECT p.*, c.CategoryName\n" +
+                    "FROM Products p\n" +
+                    "JOIN Categories c ON p.CategoryId = c.CategoryId;\n";
             try (PreparedStatement statement = connection.prepareStatement(sql);
                  ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
@@ -50,8 +52,9 @@ public class JdbcProductDao implements ProductDao{
                     String name = resultSet.getString(2);
                     int catId = resultSet.getInt(4);
                     double price = resultSet.getDouble("UnitPrice");
+                    String catName = resultSet.getString("CategoryName");
 
-                    Product product = new Product(catId, name, catId, price);
+                    Product product = new Product(catId, name, catId, price, catName);
                     // Set other properties similarly
                     products.add(product);
                 }
@@ -110,7 +113,9 @@ public class JdbcProductDao implements ProductDao{
     public List<Product> search(String keyword) {
         List<Product> products = new ArrayList<>();
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "SELECT * FROM Products WHERE ProductName LIKE ?";
+            String sql = "SELECT p.*, c.CategoryName\n" +
+                    "FROM Products p\n" +
+                    "JOIN Categories c ON p.CategoryId = c.CategoryId WHERE ProductName LIKE ?";
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
                 statement.setString(1, "%" + keyword + "%");
 
@@ -120,8 +125,9 @@ public class JdbcProductDao implements ProductDao{
                         String name = resultSet.getString("ProductName");
                         int category = resultSet.getInt("CategoryID");
                         double price = resultSet.getDouble("UnitPrice");
+                        String catName = resultSet.getString("CategoryName");
 
-                        Product product = new Product(id, name, category, price);
+                        Product product = new Product(category, name, category, price, catName);
                         products.add(product);
                     }
                 }
